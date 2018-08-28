@@ -31,11 +31,20 @@
     "adonis-kue": "^5.0.1",
     "axios": "^0.18.0",
     "crypto": "^1.0.1",
+    "google-translate-api": "^2.3.0",
+    "lucid-mongo": "^3.1.0",
     "moment": "^2.22.2",
     "mysql": "^2.16.0",
     "raven": "^2.6.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.0",
+    "eslint-plugin-standard": "^3.1.0"
+  },
   "autoload": {
     "App": "./app"
   }

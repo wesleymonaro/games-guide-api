@@ -26,52 +26,42 @@ module.exports = {
   | Session authentication is always persistent.
   |
   */
-  session: {
-    serializer: 'lucid',
-    model: 'App/Models/User',
-    scheme: 'session',
-    uid: 'email',
-    password: 'password'
-  },
+ session: {
+  serializer: 'LucidMongo',
+  model: 'App/Models/User',
+  scheme: 'session',
+  uid: 'email',
+  password: 'password'
+},
 
-  /*
-  |--------------------------------------------------------------------------
-  | Basic Auth
-  |--------------------------------------------------------------------------
-  |
-  | The basic auth authenticator uses basic auth header to authenticate a
-  | user.
-  |
-  | NOTE:
-  | This scheme is not persistent and users are supposed to pass
-  | login credentials on each request.
-  |
-  */
-  basic: {
-    serializer: 'lucid',
-    model: 'App/Models/User',
-    scheme: 'basic',
-    uid: 'email',
-    password: 'password'
-  },
+basic: {
+  serializer: 'LucidMongo',
+  model: 'App/Models/User',
+  scheme: 'basic',
+  uid: 'email',
+  password: 'password'
+},
 
-  /*
-  |--------------------------------------------------------------------------
-  | Jwt
-  |--------------------------------------------------------------------------
-  |
-  | The jwt authenticator works by passing a jwt token on each HTTP request
-  | via HTTP `Authorization` header.
-  |
-  */
-  jwt: {
-    serializer: 'lucid',
-    model: 'App/Models/User',
-    scheme: 'jwt',
-    uid: 'email',
-    password: 'password',
-    options: {
-      secret: Env.get('APP_KEY')
-    }
+jwt: {
+  serializer: 'LucidMongo',
+  model: 'App/Models/User',
+  token: 'App/Models/Token',
+  scheme: 'jwt',
+  uid: 'email',
+  password: 'password',
+  expiry: '20m',
+  options: {
+    secret: 'self::app.appKey'
   }
+},
+
+api: {
+  serializer: 'LucidMongo',
+  scheme: 'api',
+  model: 'App/Models/User',
+  token: 'App/Models/Token',
+  uid: 'username',
+  password: '',
+  expiry: '30d',
+}
 }
